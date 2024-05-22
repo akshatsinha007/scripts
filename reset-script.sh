@@ -28,7 +28,6 @@ PGPASSWORD=$PGPASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER_NAME -d $DB_NAME
 PGPASSWORD=$PGPASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER_NAME -d $DB_NAME -t -c "CREATE DATABASE $ORCHESTRATOR_DB ;"
 
 
-PGPASSWORD=$PGPASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER_NAME -d $DB_NAME -t -c "TRUNCATE TABLE sso_login_config RESTART IDENTITY ;"
 PGPASSWORD=$PGPASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER_NAME -d $DB_NAME -t -c "INSERT INTO sso_login_config (id, name, label, url, config, created_on, created_by, updated_on, updated_by, active) 
 VALUES (1, 'NewSSO', 'New SSO Login', 'https://newsso.example.com', '{"client_id": "new_client_id", "client_secret": "new_client_secret"}', NOW(), 1, NOW(), 1, true) ;"
 
